@@ -20,11 +20,11 @@
     const { loanAmount, borrowerType, borrower, totaldirect, totalindirect} = event.data;
 
     if(borrowerType != 'Guarantor'){
-        const totalDirect = totaldirect+loanAmount;
+        const totalDirectvar = totaldirect+loanAmount;
 
     }
     else{
-        const totalInDirect = totalindirect+loanAmount;
+        const totalInDirectvar = totalindirect+loanAmount;
 
     }
 
@@ -35,8 +35,8 @@
         type: "Account",
         fields:{
             id: borrower,
-            TotalDirect: TotalDirect,
-            TotalInDirect:TotalInDirect
+            TotalDirect: totalDirectvar,
+            TotalInDirect:totalInDirectvar
         }
     };
 
