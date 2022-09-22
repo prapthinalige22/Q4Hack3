@@ -35,9 +35,9 @@
     const account = {
         type: "Account",
         fields:{
-            id: borrower,
-            TotalDirect: totalDirectvar,
-            TotalInDirect:totalInDirectvar
+            Id: borrower,
+            Total_Direct__c: totalDirectvar,
+            Total_InDirect__c:totalInDirectvar
         }
     };
 
