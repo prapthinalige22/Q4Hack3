@@ -29,23 +29,21 @@
     }
 
 
-    const uow = context.org.dataApi.newUnitOfwork();
 
     // Define a record using the RecordForCreate type and providing the Developer Name
-    const account = uow.registerUpdate(
-    {
+    const account = {
         type: "Account",
         fields:{
-            Id: borrower,
+            id: borrower,
             TotalDirect: TotalDirect,
             TotalInDirect:TotalInDirect
         }
-    });
+    };
 
 
     try {
         // Insert the record using the SalesforceSDK DataApi and get the new Record Id from the result
-        const { id: recordId } = await context.org.dataApi.commitUnitOfWork(uow);
+        const { id: recordId } = await context.org.dataApi.update(account);
 
         // Query Accounts using the SalesforceSDK DataApi to verify that your new Account was created.
         const soql = `SELECT Fields(STANDARD) FROM Account`;// WHERE Id = '${recordId}'`;
