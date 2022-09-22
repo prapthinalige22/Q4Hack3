@@ -19,13 +19,14 @@
     // Extract properties from payload
     const { loanAmount, borrowerType, borrower, totaldirect, totalindirect} = event.data;
 
-    if(borrowerType != 'Guarantor'){
-        const totalDirectvar = totaldirect+loanAmount;
+    const totalDirectvar = totaldirect;
+    const totalInDirectvar = totalindirect;
 
+    if(borrowerType != 'Guarantor'){
+        totalDirectvar = totaldirect+loanAmount;
     }
     else{
-        const totalInDirectvar = totalindirect+loanAmount;
-
+        totalInDirectvar = totalindirect+loanAmount;
     }
 
 
